@@ -44,8 +44,8 @@ test("Post", async ({ browser }) => {
 	const articleUrl = `${env.BLOG_URL}/article/${env.POST_INDEX}`;
 
 	if (env.GITHUB_OUTPUT) {
-		appendFileSync(env.GITHUB_OUTPUT, `TOTAL_POSTS=${articleLength - 1}`);
-		appendFileSync(env.GITHUB_OUTPUT, `GET_DATE_OUTPUT=${getDate}`);
+		appendFileSync(env.GITHUB_OUTPUT, `TOTAL_POSTS=${articleLength - 1}\n`);
+		appendFileSync(env.GITHUB_OUTPUT, `GET_DATE_OUTPUT=${getDate}\n`);
 	}
 
 	//
