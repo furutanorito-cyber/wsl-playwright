@@ -45,7 +45,7 @@ jobs:
       - name: GITHUB_OUTPUT test
         env:
           TOTAL_POSTS: ${{ steps.playwright-test.outputs.TOTAL_POSTS }}
-          GET_DATE_OUTPUT: ${{steps.playwright-test.outputs.GET_DATE}}
+          GET_DATE_OUTPUT: ${{steps.playwright-test.outputs.GET_DATE_OUTPUT}}
         run: |
           echo "記事の日付: $GET_DATE_OUTPUT"
           echo "この日の記事数: $TOTAL_POSTS"

@@ -45,7 +45,7 @@ test("Post", async ({ browser }) => {
 
 	if (env.GITHUB_OUTPUT) {
 		appendFileSync(env.GITHUB_OUTPUT, `TOTAL_POSTS=${articleLength - 1}`);
-		appendFileSync(env.GITHUB_OUTPUT, `GET_DATE=${getDate}`);
+		appendFileSync(env.GITHUB_OUTPUT, `GET_DATE_OUTPUT=${getDate}`);
 	}
 
 	//
