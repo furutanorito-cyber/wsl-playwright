@@ -1,0 +1,15 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+.env
+screenshot
+.auth
+.vscode
+tests/auth.setup.ts
+tests/generate.spec.ts
+prompt.md
