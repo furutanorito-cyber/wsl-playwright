@@ -11,6 +11,7 @@ test("Post", async ({ browser }) => {
 	const page = await context.newPage();
 
 	await page.goto(`https://x.com/${env.X_USERNAME}`);
+	await page.waitForTimeout(10000);
 	const title = await page.title();
 
 	console.log(title);
