@@ -130,7 +130,7 @@ test("Post", async ({ browser }) => {
 			totalArticles = await cidElements.count();
 
 			while (totalArticles === 0) {
-				preFormatDate = new Date(env.GET_DATE);
+				preFormatDate = new Date(nextDate);
 				preFormatDate.setDate(preFormatDate.getDate() + 1);
 				nextDate = preFormatDate.toISOString().split("T")[0];
 
