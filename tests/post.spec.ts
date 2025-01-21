@@ -108,6 +108,9 @@ test("Post", async ({ browser }) => {
 	if (env.GITHUB_OUTPUT) {
 		let nextDate: string;
 		let nextIndex: number;
+
+		await page.goto(`${env.BLOG_URL}/post/list/${env.GET_DATE}`);
+		const cidElements = await page.locator("[id='cid']");
 		const totalArticles: number = await cidElements.count();
 
 		console.log(totalArticles);
