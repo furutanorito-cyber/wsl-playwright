@@ -134,9 +134,17 @@ test("Post", async ({ browser }) => {
 				preFormatDate.setDate(preFormatDate.getDate() + 1);
 				nextDate = preFormatDate.toISOString().split("T")[0];
 
+				console.log(`nextDate: ${nextDate}`);
+
 				await page.goto(`${env.BLOG_URL}/post/list/${nextDate}`);
 				cidElements = await page.locator("[id='cid']");
 				totalArticles = await cidElements.count();
+
+				console.log(`totalArticles: ${totalArticles}`);
+
+				if (totalArticles > 0) {
+					break;
+				}
 			}
 
 			nextIndex = 0;
