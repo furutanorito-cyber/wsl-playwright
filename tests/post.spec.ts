@@ -108,13 +108,13 @@ test("Post", async ({ browser }) => {
 	if (env.GITHUB_OUTPUT) {
 		let nextDate: string;
 		let nextIndex: number;
-		const totalArticles = (await cidElements.count()) - 1;
+		const totalArticles: number = await cidElements.count();
 
-		console.log(totalArticles);
+		console.log(totalArticles - 1);
 
 		//
 		//
-		if (env.POST_INDEX === totalArticles) {
+		if (env.POST_INDEX === totalArticles - 1) {
 			let preFormatDate = new Date(env.GET_DATE);
 			preFormatDate.setDate(preFormatDate.getDate() + 1);
 			nextDate = preFormatDate.toISOString().split("T")[0];
