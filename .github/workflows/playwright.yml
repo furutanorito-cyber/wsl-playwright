@@ -56,6 +56,9 @@ jobs:
           echo "次の記事の日付: $NEXT_DATE"
           echo "次の記事のインデックス: $NEXT_INDEX"
 
+          echo "NEXT_DATE=$NEXT_DATE" >> $GITHUB_OUTPUT
+          echo "NEXT_INDEX=$NEXT_INDEX" >> $GITHUB_OUTPUT
+
       - name: Update GET_DATE variable
         uses: mmoyaferrer/set-github-variable@v1.0.0
         with:
