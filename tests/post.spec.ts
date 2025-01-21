@@ -110,7 +110,7 @@ test("Post", async ({ browser }) => {
 		let nextIndex: number;
 		const totalArticles: number = await cidElements.count();
 
-		console.log(totalArticles - 1);
+		console.log(totalArticles);
 
 		//
 		//
