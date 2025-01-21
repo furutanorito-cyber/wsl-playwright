@@ -47,10 +47,27 @@ jobs:
         run: |
           npx playwright test tests/post.spec.ts
 
-      - name: GITHUB_OUTPUT test
+      - name: Read GITHUB_OUTPUT
+        id: read-variables
         env:
           NEXT_DATE: ${{ steps.playwright-test.outputs.NEXT_DATE }}
           NEXT_INDEX: ${{steps.playwright-test.outputs.NEXT_INDEX}}
         run: |
           echo "次の記事の日付: $NEXT_DATE"
           echo "次の記事のインデックス: $NEXT_INDEX"
+
+      - name: Update GET_DATE variable
+        uses: mmoyaferrer/set-github-variable@v1.0.0
+        with:
+          name: "GET_DATE"
+          value: ${{ steps.read-variables.outputs.NEXT_DATE }}
+          repository: ${{ github.repository }}
+          token: ${{ secrets.WSL_PLAYWRIGHT_PAT }}
+
+      - name: Update POST_INDEX variable
+        uses: mmoyaferrer/set-github-variable@v1.0.0
+        with:
+          name: "POST_INDEX"
+          value: ${{ steps.read-variables.outputs.NEXT_INDEX }}
+          repository: ${{ github.repository }}
+          token: ${{ secrets.WSL_PLAYWRIGHT_PAT }}
