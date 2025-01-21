@@ -113,11 +113,12 @@ test("Post", async ({ browser }) => {
 		const cidElements = await page.locator("[id='cid']");
 		const totalArticles: number = await cidElements.count();
 
-		console.log(totalArticles);
+		console.log(totalArticles - 1);
+		console.log(Number(env.POST_INDEX));
 
 		//
 		//
-		if (env.POST_INDEX === totalArticles - 1) {
+		if (Number(env.POST_INDEX) === totalArticles - 1) {
 			let preFormatDate = new Date(env.GET_DATE);
 			preFormatDate.setDate(preFormatDate.getDate() + 1);
 			nextDate = preFormatDate.toISOString().split("T")[0];
