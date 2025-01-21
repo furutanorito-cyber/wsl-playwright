@@ -100,8 +100,8 @@ test("Post", async ({ browser }) => {
 			)}`,
 		);
 
-	// await page.getByTestId("tweetButton").press("Control+Enter");
-	// await page.waitForURL(`https://x.com/${env.X_USERNAME}`);
+	await page.getByTestId("tweetButton").press("Control+Enter");
+	await page.waitForURL(`https://x.com/${env.X_USERNAME}`);
 
 	//
 	//
@@ -113,17 +113,12 @@ test("Post", async ({ browser }) => {
 		let cidElements = await page.locator("[id='cid']");
 		let totalArticles: number = await cidElements.count();
 
-		console.log(totalArticles - 1);
-		console.log(Number(env.POST_INDEX));
-
 		//
 		//
 		if (Number(env.POST_INDEX) === totalArticles - 1) {
 			let preFormatDate = new Date(env.GET_DATE);
 			preFormatDate.setDate(preFormatDate.getDate() + 1);
 			nextDate = preFormatDate.toISOString().split("T")[0];
-
-			console.log(`nextDate: ${nextDate}`);
 
 			await page.goto(`${env.BLOG_URL}/post/list/${nextDate}`);
 			cidElements = await page.locator("[id='cid']");
@@ -134,13 +129,9 @@ test("Post", async ({ browser }) => {
 				preFormatDate.setDate(preFormatDate.getDate() + 1);
 				nextDate = preFormatDate.toISOString().split("T")[0];
 
-				console.log(`nextDate: ${nextDate}`);
-
 				await page.goto(`${env.BLOG_URL}/post/list/${nextDate}`);
 				cidElements = await page.locator("[id='cid']");
 				totalArticles = await cidElements.count();
-
-				console.log(`totalArticles: ${totalArticles}`);
 
 				if (totalArticles > 0) {
 					break;
