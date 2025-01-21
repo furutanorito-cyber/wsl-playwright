@@ -100,18 +100,21 @@ test("Post", async ({ browser }) => {
 			)}`,
 		);
 
-	await page.getByTestId("tweetButton").press("Control+Enter");
-	await page.waitForURL(`https://x.com/${env.X_USERNAME}`);
+	// await page.getByTestId("tweetButton").press("Control+Enter");
+	// await page.waitForURL(`https://x.com/${env.X_USERNAME}`);
 
 	//
 	//
 	if (env.GITHUB_OUTPUT) {
 		let nextDate: string;
 		let nextIndex: number;
+		const totalArticles = (await cidElements.count()) - 1;
+
+		console.log(totalArticles);
 
 		//
 		//
-		if (env.POST_INDEX === (await cidElements.count()) - 1) {
+		if (env.POST_INDEX === totalArticles) {
 			let preFormatDate = new Date(env.GET_DATE);
 			preFormatDate.setDate(preFormatDate.getDate() + 1);
 			nextDate = preFormatDate.toISOString().split("T")[0];

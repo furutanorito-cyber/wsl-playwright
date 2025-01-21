@@ -52,5 +52,5 @@ jobs:
           NEXT_DATE: ${{ steps.playwright-test.outputs.NEXT_DATE }}
           NEXT_INDEX: ${{steps.playwright-test.outputs.NEXT_INDEX}}
         run: |
-          echo "この日の記事数: $NEXT_DATE"
-          echo "記事の日付: $NEXT_INDEX"
+          echo "次の記事の日付: $NEXT_DATE"
+          echo "次の記事のインデックス: $NEXT_INDEX"
