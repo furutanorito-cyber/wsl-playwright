@@ -37,6 +37,11 @@ jobs:
           BLOG_URL: ${{secrets.BLOG_URL}}
           BLOG_USERNAME: ${{secrets.BLOG_USERNAME}}
           BLOG_PASSWORD: ${{secrets.BLOG_PASSWORD}}
+          BLOG_NAME: ${{secrets.BLOG_NAME}}
+          API_BASE_URL: ${{secrets.API_BASE_URL}}
+          API_ID: ${{secrets.API_ID}}
+          API_AFFILIATE_ID: ${{secrets.API_AFFILIATE_ID}}
+          API_SERVICE: ${{secrets.API_SERVICE}}
           GET_DATE: ${{ vars.GET_DATE }}
           POST_INDEX: ${{ vars.POST_INDEX }}
         run: |
@@ -44,8 +49,8 @@ jobs:
 
       - name: GITHUB_OUTPUT test
         env:
-          TOTAL_POSTS: ${{ steps.playwright-test.outputs.TOTAL_POSTS }}
-          GET_DATE_OUTPUT: ${{steps.playwright-test.outputs.GET_DATE_OUTPUT}}
+          NEXT_DATE: ${{ steps.playwright-test.outputs.NEXT_DATE }}
+          NEXT_INDEX: ${{steps.playwright-test.outputs.NEXT_INDEX}}
         run: |
-          echo "この日の記事数: $TOTAL_POSTS"
-          echo "記事の日付: $GET_DATE_OUTPUT"
+          echo "この日の記事数: $NEXT_DATE"
+          echo "記事の日付: $NEXT_INDEX"
