@@ -144,7 +144,7 @@ test("Post", async ({ browser }) => {
 			//
 		} else {
 			nextDate = env.GET_DATE;
-			nextIndex = env.POST_INDEX + 1;
+			nextIndex = Number(env.POST_INDEX) + 1;
 		}
 
 		//
