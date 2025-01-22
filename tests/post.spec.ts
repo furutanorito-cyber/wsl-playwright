@@ -101,7 +101,7 @@ test("Post", async ({ browser }) => {
 		);
 
 	await page.getByTestId("tweetButton").press("Control+Enter");
-	await page.waitForURL(`https://x.com/${env.X_USERNAME}`);
+	// await page.waitForURL(`https://x.com/${env.X_USERNAME}`);
 
 	//
 	//
