@@ -49,7 +49,7 @@ test("Post", async ({ browser }) => {
 	//
 	//
 	const postImageUrls: string[] =
-		productItem.sampleImageURL.sample_l.image.length > 0
+		productItem.sampleImageURL.sample_l !== undefined
 			? Array.from(
 					{ length: 4 },
 					(_, index) => productItem.sampleImageURL.sample_l.image[index],
