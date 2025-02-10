@@ -21,7 +21,7 @@ test("Post", async ({ browser }) => {
 	//
 	//
 	await page.goto(`${env.BLOG_URL}/post/list/${env.GET_DATE}`);
-	let cidElements = await page.locator("[id='cid']");
+	const cidElements = await page.locator("[id='cid']");
 
 	const cidElement = cidElements.nth(env.POST_INDEX);
 	const cid = await cidElement.textContent();
@@ -110,6 +110,8 @@ test("Post", async ({ browser }) => {
 		let nextDate: string;
 		let nextIndex: number;
 
+		await page.goto(`${env.BLOG_URL}/post/list/${env.GET_DATE}`);
+		let cidElements = await page.locator("[id='cid']");
 		let totalArticles: number = await cidElements.count();
 
 		//
