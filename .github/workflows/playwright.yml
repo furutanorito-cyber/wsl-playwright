@@ -36,6 +36,7 @@ jobs:
         env:
           X_USERNAME: ${{ secrets.X_USERNAME }}
           X_COOKIES: ${{ secrets.X_COOKIES }}
+          DEV_URL: ${{secrets.DEV_URL}}
           BLOG_URL: ${{secrets.BLOG_URL}}
           BLOG_USERNAME: ${{secrets.BLOG_USERNAME}}
           BLOG_PASSWORD: ${{secrets.BLOG_PASSWORD}}
