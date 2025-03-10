@@ -10,6 +10,8 @@ interface EnvConfig {
 
 	MFA_SECRET_KEY: string;
 
+	DEV_URL: string;
+
 	BLOG_URL: string;
 	BLOG_USERNAME: string;
 	BLOG_PASSWORD: string;
@@ -32,6 +34,8 @@ const env: EnvConfig = {
 	X_COOKIES: process.env.X_COOKIES,
 
 	MFA_SECRET_KEY: process.env.MFA_SECRET_KEY,
+
+	DEV_URL: process.env.DEV_URL,
 
 	BLOG_URL: process.env.BLOG_URL,
 	BLOG_USERNAME: process.env.BLOG_USERNAME,
