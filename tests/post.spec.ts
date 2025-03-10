@@ -20,7 +20,7 @@ test("Post", async ({ browser }) => {
 	//
 	//
 	//
-	await page.goto(`${env.BLOG_URL}/post/list/${env.GET_DATE}`);
+	await page.goto(`${env.DEV_URL}/post/list/${env.GET_DATE}`);
 	const cidElements = await page.locator("[id='cid']");
 
 	const cidElement = cidElements.nth(env.POST_INDEX);
@@ -110,7 +110,7 @@ test("Post", async ({ browser }) => {
 		let nextDate: string;
 		let nextIndex: number;
 
-		await page.goto(`${env.BLOG_URL}/post/list/${env.GET_DATE}`);
+		await page.goto(`${env.DEV_URL}/post/list/${env.GET_DATE}`);
 		let cidElements = await page.locator("[id='cid']");
 		let totalArticles: number = await cidElements.count();
 
@@ -121,7 +121,7 @@ test("Post", async ({ browser }) => {
 			preFormatDate.setDate(preFormatDate.getDate() + 1);
 			nextDate = preFormatDate.toISOString().split("T")[0];
 
-			await page.goto(`${env.BLOG_URL}/post/list/${nextDate}`);
+			await page.goto(`${env.DEV_URL}/post/list/${nextDate}`);
 			cidElements = await page.locator("[id='cid']");
 			totalArticles = await cidElements.count();
 
@@ -130,7 +130,7 @@ test("Post", async ({ browser }) => {
 				preFormatDate.setDate(preFormatDate.getDate() + 1);
 				nextDate = preFormatDate.toISOString().split("T")[0];
 
-				await page.goto(`${env.BLOG_URL}/post/list/${nextDate}`);
+				await page.goto(`${env.DEV_URL}/post/list/${nextDate}`);
 				cidElements = await page.locator("[id='cid']");
 				totalArticles = await cidElements.count();
 
